@@ -18,8 +18,8 @@
  "is_standard": 1,
  "login_required": 1,
  "max_attachment_size": 0,
- "modified": "2020-05-19 15:08:45.361878",
- "modified_by": "Administrator",
+ "modified": "2020-12-28 13:22:11.276845",
+ "modified_by": "mrosero@clickcg.co",
  "module": "Support",
  "name": "issues",
  "owner": "Administrator",
@@ -36,6 +36,17 @@
  "web_form_fields": [
   {
    "allow_read_on_all_link_options": 0,
+   "fieldname": "",
+   "fieldtype": "Section Break",
+   "hidden": 0,
+   "max_length": 0,
+   "max_value": 0,
+   "read_only": 0,
+   "reqd": 0,
+   "show_in_filter": 0
+  },
+  {
+   "allow_read_on_all_link_options": 0,
    "fieldname": "subject",
    "fieldtype": "Data",
    "hidden": 0,
@@ -44,6 +55,30 @@
    "max_value": 0,
    "read_only": 0,
    "reqd": 1,
+   "show_in_filter": 0
+  },
+  {
+   "allow_read_on_all_link_options": 0,
+   "fieldname": "",
+   "fieldtype": "Column Break",
+   "hidden": 0,
+   "max_length": 0,
+   "max_value": 0,
+   "read_only": 0,
+   "reqd": 0,
+   "show_in_filter": 0
+  },
+  {
+   "allow_read_on_all_link_options": 0,
+   "fieldname": "customer",
+   "fieldtype": "Data",
+   "hidden": 0,
+   "label": "Customer",
+   "max_length": 0,
+   "max_value": 0,
+   "options": "Customer",
+   "read_only": 1,
+   "reqd": 0,
    "show_in_filter": 0
   },
   {
@@ -62,14 +97,12 @@
   },
   {
    "allow_read_on_all_link_options": 0,
-   "fieldname": "customer",
-   "fieldtype": "Data",
+   "fieldname": "",
+   "fieldtype": "Section Break",
    "hidden": 0,
-   "label": "Customer",
    "max_length": 0,
    "max_value": 0,
-   "options": "Customer",
-   "read_only": 1,
+   "read_only": 0,
    "reqd": 0,
    "show_in_filter": 0
   },
@@ -118,6 +151,29 @@
    "fieldtype": "Check",
    "hidden": 1,
    "label": "Via Customer Portal",
+   "max_length": 0,
+   "max_value": 0,
+   "read_only": 1,
+   "reqd": 0,
+   "show_in_filter": 0
+  },
+  {
+   "allow_read_on_all_link_options": 0,
+   "fieldname": "",
+   "fieldtype": "Section Break",
+   "hidden": 0,
+   "max_length": 0,
+   "max_value": 0,
+   "read_only": 0,
+   "reqd": 0,
+   "show_in_filter": 0
+  },
+  {
+   "allow_read_on_all_link_options": 0,
+   "fieldname": "resolution_details",
+   "fieldtype": "Text Editor",
+   "hidden": 0,
+   "label": "Resolution Details",
    "max_length": 0,
    "max_value": 0,
    "read_only": 1,
