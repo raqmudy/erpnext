@@ -1,0 +1,31 @@
+{
+ "attach_print": 0,
+ "channel": "Email",
+ "condition": "doc.auto_created",
+ "creation": "2020-11-21 23:20:29.540076",
+ "days_in_advance": 0,
+ "docstatus": 0,
+ "doctype": "Notification",
+ "document_type": "Quotation",
+ "enabled": 1,
+ "event": "New",
+ "idx": 0,
+ "is_standard": 1,
+ "message": "<h3>{{_(\"Fiscal Year\")}}</h3>\n\n<p>{{ _(\"New fiscal year created :- \") }} {{ doc.name }}</p>",
+ "modified": "2020-11-21 23:20:29.540076",
+ "modified_by": "mrosero@clickcg.co",
+ "module": "Accounts",
+ "name": "Notificacion por nueva Cotizacion {{ doc.name }}",
+ "owner": "mrosero@clickcg.co",
+ "recipients": [
+  {
+   "email_by_role": "Accounts User"
+  },
+  {
+   "email_by_role": "Accounts Manager"
+  }
+ ],
+ "sender": "CLiCK Ventas",
+ "sender_email": "ventas@clickcg.co",
+ "subject": "Notificacion por nueva Cotizacion {{ doc.name }}"
+}
