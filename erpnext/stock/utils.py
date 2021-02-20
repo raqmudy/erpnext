@@ -5,7 +5,7 @@ from __future__ import unicode_literals
 import frappe, erpnext
 from frappe import _
 import json
-from frappe.utils import flt, cstr, nowdate, nowtime
+from frappe.utils import flt, cstr, nowdate, nowtime, get_link_to_form
 
 from six import string_types
 
@@ -279,12 +279,15 @@ def is_group_warehouse(warehouse):
 	if frappe.db.get_value("Warehouse", warehouse, "is_group"):
 		frappe.throw(_("Group node warehouse is not allowed to select for transactions"))
 
+def validate_disabled_warehouse(warehouse):
+	if frappe.db.get_value("Warehouse", warehouse, "disabled"):
+		frappe.throw(_("Disabled Warehouse {0} cannot be used for this transaction.").format(get_link_to_form('Warehouse', warehouse)))
+
 def update_included_uom_in_report(columns, result, include_uom, conversion_factors):
 	if not include_uom or not conversion_factors:
 		return
 
 	convertible_cols = {}
-
 	is_dict_obj = False
 	if isinstance(result[0], dict):
 		is_dict_obj = True
@@ -306,13 +309,13 @@ def update_included_uom_in_report(columns, result, include_uom, conversion_facto
 	for row_idx, row in enumerate(result):
 		data = row.items() if is_dict_obj else enumerate(row)
 		for key, value in data:
-			if not key in convertible_columns or not conversion_factors[row_idx]:
+			if key not in convertible_columns or not conversion_factors[row_idx-1]:
 				continue
 
 			if convertible_columns.get(key) == 'rate':
-				new_value = flt(value) * conversion_factors[row_idx]
+				new_value = flt(value) * conversion_factors[row_idx-1]
 			else:
-				new_value = flt(value) / conversion_factors[row_idx]
+				new_value = flt(value) / conversion_factors[row_idx-1]
 
 			if not is_dict_obj:
 				row.insert(key+1, new_value)
