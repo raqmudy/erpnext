@@ -1,0 +1,7 @@
+.call-popup a:hover {
+  text-decoration: underline;
+}
+.call-popup .for-description {
+  max-height: 250px;
+  overflow: scroll;
+}
