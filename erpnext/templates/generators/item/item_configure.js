@@ -29,7 +29,7 @@ class ItemConfigure {
 		});
 
 		this.dialog = new frappe.ui.Dialog({
-			title: __('Configure {0}', [this.item_name]),
+			title: __('Configurar {0}', [this.item_name]),
 			fields,
 			on_hide: () => {
 				set_continue_configuration();
@@ -38,7 +38,7 @@ class ItemConfigure {
 
 		this.attribute_data.forEach(a => {
 			const field = this.dialog.get_field(a.attribute);
-			const $a = $(`<a href>${__("Clear")}</a>`);
+			const $a = $(`<a href>${__("Limpiar")}</a>`);
 			$a.on('click', (e) => {
 				e.preventDefault();
 				this.dialog.set_value(a.attribute, '');
@@ -121,13 +121,13 @@ class ItemConfigure {
 				const control = frappe.ui.form.make_control({
 					df: {
 						fieldtype: 'Int',
-						label: __('Enter value betweeen {0} and {1}', [numbers[0], numbers[1]]),
+						label: __('Introduzca un valor entre {0} y {1}', [numbers[0], numbers[1]]),
 						change: () => {
 							const value = control.get_value();
 							if (value < numbers[0] || value > numbers[1]) {
 								control.$wrapper.addClass('was-validated');
 								control.set_description(
-									__('Value must be between {0} and {1}', [numbers[0], numbers[1]]));
+									__('El valodr debe estar entre {0} y {1}', [numbers[0], numbers[1]]));
 								control.$input[0].setCustomValidity('error');
 							} else {
 								control.$wrapper.removeClass('was-validated');
@@ -172,7 +172,7 @@ class ItemConfigure {
 	set_loading_status() {
 		this.dialog.$status_area.html(`
 			<div class="alert alert-warning d-flex justify-content-between align-items-center" role="alert">
-				${__('Loading...')}
+				${__('Cargando...')}
 			</div>
 		`);
 	}
@@ -187,7 +187,7 @@ class ItemConfigure {
 	}
 
 	get_html_for_item_found({ filtered_items_count, filtered_items, exact_match, product_info, allow_items_not_in_stock }) {
-		const exact_match_message = __('1 exact match.');
+		const exact_match_message = __('1 resultado encontrado.');
 		const one_item = exact_match.length === 1 ?
 			exact_match[0] :
 			filtered_items_count === 1 ?
@@ -195,7 +195,7 @@ class ItemConfigure {
 
 		// Allow Add to Cart if adding out of stock items enabled in Shopping Cart else check stock.
 		const in_stock = allow_items_not_in_stock ? 1 : product_info && product_info.in_stock;
-		const add_to_cart = `<a href data-action="btn_add_to_cart" data-item-code="${one_item}">${__('Add to cart')}</a>`;
+		const add_to_cart = `<a href data-action="btn_add_to_cart" data-item-code="${one_item}">${__('Agregar al Carrito')}</a>`;
 		const product_action =  in_stock ? add_to_cart : `<a style="color:#74808b;">${__('Not in Stock')}</a>`;
 
 		const item_add_to_cart = one_item ? `
@@ -208,8 +208,8 @@ class ItemConfigure {
 		`: '';
 
 		const items_found = filtered_items_count === 1 ?
-			__('{0} item found.', [filtered_items_count]) :
-			__('{0} items found.', [filtered_items_count]);
+			__('{0} articulo encontrado.', [filtered_items_count]) :
+			__('{0} articulos encontrados.', [filtered_items_count]);
 
 		const item_found_status = `
 			<div class="alert alert-warning d-flex justify-content-between align-items-center" role="alert">
@@ -218,7 +218,7 @@ class ItemConfigure {
 					${exact_match.length === 1 ? `<span>${exact_match_message}</span>` : ''}
 				</span>
 				<a href data-action="btn_clear_values">
-					${__('Clear values')}
+					${__('Limpiar')}
 				</a>
 			</div>
 		`;
@@ -301,9 +301,9 @@ function set_continue_configuration() {
 	const { itemCode } = $btn_configure.data();
 
 	if (localStorage.getItem(`configure:${itemCode}`)) {
-		$btn_configure.text(__('Continue Configuration'));
+		$btn_configure.text(__('Continuar Configuracion'));
 	} else {
-		$btn_configure.text(__('Configure'));
+		$btn_configure.text(__('Configurar'));
 	}
 }
 

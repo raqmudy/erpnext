@@ -56,38 +56,38 @@ frappe.ready(() => {
 
 	$('.btn-new-address').click(() => {
 		const d = new frappe.ui.Dialog({
-			title: __('New Address'),
+			title: __('Nueva Direccion'),
 			fields: [
 				{
-					label: __('Address Title'),
+					label: __('Dirección'),
 					fieldname: 'address_title',
 					fieldtype: 'Data',
 					reqd: 1
 				},
 				{
-					label: __('Address Line 1'),
+					label: __('Dirección 1'),
 					fieldname: 'address_line1',
 					fieldtype: 'Data',
 					reqd: 1
 				},
 				{
-					label: __('Address Line 2'),
+					label: __('Dirección 2'),
 					fieldname: 'address_line2',
 					fieldtype: 'Data'
 				},
 				{
-					label: __('City/Town'),
+					label: __('Ciudad'),
 					fieldname: 'city',
 					fieldtype: 'Data',
 					reqd: 1
 				},
 				{
-					label: __('State'),
+					label: __('Provincia'),
 					fieldname: 'state',
 					fieldtype: 'Data'
 				},
 				{
-					label: __('Country'),
+					label: __('País'),
 					fieldname: 'country',
 					fieldtype: 'Link',
 					options: 'Country',
@@ -99,7 +99,7 @@ frappe.ready(() => {
 					width: "50%"
 				},
 				{
-					label: __('Address Type'),
+					label: __('Tipo de Dirección'),
 					fieldname: 'address_type',
 					fieldtype: 'Select',
 					options: [
@@ -109,17 +109,17 @@ frappe.ready(() => {
 					reqd: 1
 				},
 				{
-					label: __('Postal Code'),
+					label: __('Código Postal'),
 					fieldname: 'pincode',
 					fieldtype: 'Data'
 				},
 				{
 					fieldname: "phone",
 					fieldtype: "Data",
-					label: "Phone"
+					label: "Teléfono"
 				},
 			],
-			primary_action_label: __('Save'),
+			primary_action_label: __('Guardar'),
 			primary_action: (values) => {
 				frappe.call('erpnext.shopping_cart.cart.add_new_address', { doc: values })
 					.then(r => {
