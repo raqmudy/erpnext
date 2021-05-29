@@ -1,0 +1,33 @@
+{
+ "attach_print": 0,
+ "channel": "Email",
+ "condition": "doc.status != \"Open\"",
+ "creation": "2020-11-10 13:36:50.410268",
+ "days_in_advance": 0,
+ "docstatus": 0,
+ "doctype": "Notification",
+ "document_type": "Issue",
+ "enabled": 1,
+ "event": "Value Change",
+ "idx": 0,
+ "is_standard": 1,
+ "message": "<h3>Incidencia actualizada</h3>\n\n<p>Incidencia {{ doc.name }} ha sido actualizada. Por favor tome las acciones requeridas.</p>\n\n<!-- show last comment -->\n{% if comments %}\nUltima Actualizacion : {{ comments[-1].comment }} por {{ comments[-1].by }}\n{% endif %}\n\n<h4>Detalles</h4>\n\n<ul>\n<li>Cliente: {{ doc.customer }}\n<li>Detalle: {{ doc.subject }}\n</ul>\n<p>\n<a href=\"https://clickcg.co/issues?name={{ doc.name }}\">Conectarse y Ver en el Navegador</a>",
+ "modified": "2021-05-28 10:24:50.738929",
+ "modified_by": "mrosero@clickcg.co",
+ "module": "Support",
+ "name": "Incidencia Actualizada",
+ "owner": "mrosero@clickcg.co",
+ "recipients": [
+  {
+   "email_by_document_field": "raised_by"
+  },
+  {
+   "email_by_document_field": "owner"
+  }
+ ],
+ "sender": "CLiCK Soporte",
+ "sender_email": "soporte@clickcg.co",
+ "set_property_after_alert": "",
+ "subject": "{{ doc.name }} ha sido actualizada",
+ "value_changed": "status"
+}
