@@ -32,7 +32,7 @@
 		<div class="row">
 			{% for item in homepage.products %}
 			<div class="col-md-4 mb-4">
-				<div class="card h-100 justify-content-between">
+				<div style="border: 1px solid rgba(0,0,0,.125);border-radius: .25rem" class="h-100 justify-content-between">
 					<div class="website-image-lazy" data-class="card-img-top website-image-extra-large" data-src="{{ item.image }}" data-alt="{{ item.item_name }}"></div>
 					<div class="card-body flex-grow-0">
 						<h5 class="card-title">{{ item.item_name }}</h5>
@@ -52,7 +52,7 @@
 		<div class="row">
 			{% for blog in blogs %}
 			<div class="col-md-4 mb-4">
-				<div class="card h-100">
+				<div style="border: 1px solid rgba(0,0,0,.125);border-radius: .25rem" class="h-100">
 					<div class="card-body">
 						<h5 class="card-title">{{ blog.title }}</h5>
 						<p class="card-subtitle mb-2 text-muted">{{ _('By {0}').format(blog.blogger) }}</p>
